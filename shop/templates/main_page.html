@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block items %}
+        {% for item in items %}
+        <main class="row">
+            <div class="row text-center">
+                <div class="col-4">
+                    <div class="card mb-4 rounded-3 shadow-sm">
+                        <div class="card-header py-3">
+                            <h4 class="my-0 fw-normal">{{ item.name }} Товар 1</h4>
+                        </div>
+                        <div class="card-body">
+                            <h2 class="card-title pricing-card-title">{{ item.currency }}{{ item.price }}  $100</h2>
+                            <p>
+                                {{ item.description }}
+                            </p>
+                            <button type="button" class="w-100 btn btn-lg btn-outline-primary">Купить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        {% endfor %}
+{% endblock %}
