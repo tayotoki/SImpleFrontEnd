@@ -1,24 +1,64 @@
 {% extends 'base.html' %}
 
-{% block items %}
-        {% for item in items %}
+{% block content %}
+
+
         <main class="row">
             <div class="row text-center">
                 <div class="col-4">
+                    {% for item in items %}
                     <div class="card mb-4 rounded-3 shadow-sm">
                         <div class="card-header py-3">
-                            <h4 class="my-0 fw-normal">{{ item.name }} Товар 1</h4>
+                            <h4 class="my-0 fw-normal">{{ item.name }}</h4>
                         </div>
                         <div class="card-body">
-                            <h2 class="card-title pricing-card-title">{{ item.currency }}{{ item.price }}  $100</h2>
+                            <h2 class="card-title pricing-card-title">{{ item.currency.value }}{{ item.price }}</h2>
                             <p>
                                 {{ item.description }}
                             </p>
                             <button type="button" class="w-100 btn btn-lg btn-outline-primary">Купить</button>
                         </div>
                     </div>
+                    {% endfor %}
+                </div>
+                <div class="col-8">
+                    <form class="row py-3 g-3 needs-validation shadow-lg" novalidate>
+                      <div class="col-md-4">
+                        <label for="validationCustom01" class="form-label">Ваше имя</label>
+                        <input type="text" class="form-control" id="validationCustom01" required>
+                        <div class="valid-feedback">
+                          Все верно!
+                        </div>
+                        <div class="invalid-feedback">
+                          Укажите ваше имя
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <label for="validationCustom02" class="form-label">Логин почты</label>
+                        <input type="text" class="form-control" id="validationCustom02" value="Otto" required>
+                        <div class="valid-feedback">
+                          Все верно!
+                        </div>
+                        <div class="invalid-feedback">
+                           Введите логин почты
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <label for="validationCustomUsername" class="form-label">Почтовый сервис</label>
+                        <div class="input-group has-validation">
+                          <span class="input-group-text" id="inputGroupPrepend">@</span>
+                          <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                          <div class="invalid-feedback">
+                            Пожалуйста, введите почтовый сервис,
+                            например "yandex.ru".
+                          </div>
+                        </div>
+                    </div>
+                      <div class="col-12 mt-4">
+                        <button class="btn btn-primary" type="submit" onclick="check_form()">Потвердить</button>
+                      </div>
+                    </form>
                 </div>
             </div>
         </main>
-        {% endfor %}
 {% endblock %}
