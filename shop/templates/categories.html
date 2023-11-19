@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block main_page_description %}{% endblock %}
+
+{% block content %}
+<div id="custom_alert" class="alert alert-primary mt-4" role="alert">
+    <button type="button" class="btn-close" aria-label="Close" onclick="close_div()"></button>
+  Кликните мышкой по категории для выбора
+</div>
+        <ul class="list-group mt-4">
+        {% for item in items %}
+            <li class="list-group-item">
+                {{ item.name }}
+            </li>
+        {% endfor %}
+        </ul>
+{% endblock %}

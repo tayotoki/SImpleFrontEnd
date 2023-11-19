@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block main_page_description %}{% endblock %}
+
+{% block content %}
+        {% for item in items %}
+        <main class="row">
+            <div class="row text-center mt-4">
+                <div class="col-4">
+                    <div class="card mb-4 rounded-3 shadow-sm">
+                        <div class="card-header py-3">
+                            <h4 class="my-0 fw-normal">{{ item.item.name }}</h4>
+                        </div>
+                        <div class="card-body">
+                            <h2 class="card-title pricing-card-title">{{ item.user }}</h2>
+                            <p>
+                                {{ item.date }}
+                            </p>
+                            <button type="button" class="w-100 btn btn-lg btn-outline-primary">Купить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        {% endfor %}
+{% endblock %}
+
