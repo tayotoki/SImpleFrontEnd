@@ -22,7 +22,7 @@
                     {% endfor %}
                 </div>
                 <div class="col-8">
-                    <form class="row py-3 g-3 needs-validation shadow-lg" novalidate>
+                    <form method="dialog" class="row py-3 g-3 needs-validation shadow-sm" novalidate>
                       <div class="col-md-4">
                         <label for="validationCustom01" class="form-label">Ваше имя</label>
                         <input type="text" class="form-control" id="validationCustom01" required>
@@ -35,12 +35,12 @@
                       </div>
                       <div class="col-md-4">
                         <label for="validationCustom02" class="form-label">Логин почты</label>
-                        <input type="text" class="form-control" id="validationCustom02" value="Otto" required>
+                        <input type="text" class="form-control" id="validationCustom02" required>
                         <div class="valid-feedback">
                           Все верно!
                         </div>
                         <div class="invalid-feedback">
-                           Введите логин почты
+                           Введите название почты
                         </div>
                       </div>
                       <div class="col-md-4">
@@ -55,7 +55,7 @@
                         </div>
                     </div>
                       <div class="col-12 mt-4">
-                        <button class="btn btn-primary" type="submit" onclick="check_form()">Потвердить</button>
+                        <button class="btn btn-primary" type="submit" onclick="check_form()">Отправить</button>
                       </div>
                     </form>
                 </div>
