@@ -2,6 +2,8 @@ from http.server import HTTPServer, SimpleHTTPRequestHandler
 from router.routers import URLResolver
 from template_engine import base_templates
 
+from settings import HOST_NAME, PORT
+
 
 class CustomRequestHandler(SimpleHTTPRequestHandler):
     def do_GET(self):
@@ -19,4 +21,4 @@ class CustomRequestHandler(SimpleHTTPRequestHandler):
             self.wfile.write(html_404)
 
 
-server = HTTPServer(("localhost", 8000), CustomRequestHandler)
+server = HTTPServer((HOST_NAME, PORT), CustomRequestHandler)
