@@ -3,25 +3,31 @@
 {% block main_page_description %}{% endblock %}
 
 {% block content %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Номер заказа</th>
+          <th scope="col">Название товара</th>
+          <th scope="col">Цена</th>
+          <th scope="col">Количество(шт.)</th>
+          <th scope="col">Дата заказа</th>
+          <th scope="col">Полная стоимость</th>
+          <th scope="col">Статус заказа</th>
+        </tr>
+      </thead>
         {% for item in items %}
-        <main class="row">
-            <div class="row text-center mt-4">
-                <div class="col-4">
-                    <div class="card mb-4 rounded-3 shadow-sm">
-                        <div class="card-header py-3">
-                            <h4 class="my-0 fw-normal">{{ item.item.name }}</h4>
-                        </div>
-                        <div class="card-body">
-                            <h2 class="card-title pricing-card-title">{{ item.user }}</h2>
-                            <p>
-                                {{ item.date }}
-                            </p>
-                            <button type="button" class="w-100 btn btn-lg btn-outline-primary">Купить</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
+          <tbody class="table-group-divider">
+            <tr>
+              <th scope="row">{{ item.number }}</th>
+              <td>{{ item.item.name }}</td>
+              <td>{{ item.item.currency.value }}{{ item.item.price }}</td>
+              <td>{{ item.amount }}</td>
+              <td>{{ item.date.strftime('%d.%M.%Y %H:%m') }}</td>
+              <td>{{ item.item.currency.value }}{{ item.full_price }}</td>
+              <td style="color: {{ item.status.value }}; text-shadow: 1px 1px 1px black;">{{ item.status.name }}</td>
+            </tr>
         {% endfor %}
+         </tbody>
+        </table>
 {% endblock %}
 

@@ -1,5 +1,5 @@
 from template_engine.engine import ShopTemplateEngine
-from .models import Item, Category, Order
+from .models import Item, Category, Order, FAQ
 
 
 engine = ShopTemplateEngine()
@@ -27,3 +27,11 @@ def orders() -> str:
     }
 
     return engine.render(template_name="orders.html", context=context)
+
+
+def faq() -> str:
+    context = {
+        "items": FAQ.get_samples()
+    }
+
+    return engine.render(template_name="faq.html", context=context)
